@@ -116,7 +116,7 @@ while $next_run != :null
 	$next_run = run(cmd_str) ? run(cmd_str) : :null
 end
 
-# split movements into x and y movements so the program can set x and y separately
+# split movements into x and y movements so x and y are only set once
 y_movs, x_movs = $movements.partition { |m| m[0] == 'U' || m[0] == 'D' }
 last_x = x_movs.inject(init_x) { |x, mov| mov[0] == 'L' ? x - mov[-1] : x + mov[1] }
 last_y = y_movs.inject(init_y) { |y, mov| mov[0] == 'D' ? y - mov[-1] : y + mov[1] }
