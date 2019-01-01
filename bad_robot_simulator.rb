@@ -40,7 +40,7 @@ cmd_str = ARGV[3]
 $direction = init_dir
 
 def right
-	case $direction
+	dir = case $direction
 	when 'L'
 		$direction = 'U'
 	when 'D'
@@ -53,7 +53,7 @@ def right
 end
 
 def left
-	case $direction
+	dir = case $direction
 	when 'L'
 		$direction = 'D'
 	when 'D'
