@@ -129,7 +129,7 @@ end
 
 # split movements into x and y movements so x and y are only set once
 y_movs, x_movs = $movements.partition { |m| m[0] == 'U' || m[0] == 'D' }
-last_x = x_movs.inject(init_x) { |x, mov| mov[0] == 'L' ? x - mov[-1] : x + mov[1] }
-last_y = y_movs.inject(init_y) { |y, mov| mov[0] == 'D' ? y - mov[-1] : y + mov[1] }
+last_x = x_movs.reduce(init_x) { |x, mov| mov[0] == 'L' ? x - mov[-1] : x + mov[1] }
+last_y = y_movs.reduce(init_y) { |y, mov| mov[0] == 'D' ? y - mov[-1] : y + mov[1] }
 
 puts "#{last_x} #{last_y} #{intuitive_dir_to_map_dir($last_direction)}"

@@ -15,5 +15,6 @@ Misfeatures of my program (some implemented, some planned, some just ideas):
     - doesn’t index string ranges; instead splits characters in the string and then joins them after indexing
     - use of `chars` instead of `each_char`
     - Uses symbols `:not_init` and `:null` instead of nil. They document the purpose, but at what cost?
+    - uses `reduce` where `inject` is more appropriate (minor style nit)
 - excessive or redundant initial magic comments, not used in such a short program
 
