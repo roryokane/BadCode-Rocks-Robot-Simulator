@@ -7,27 +7,27 @@ $direction = :not_init
 
 def map_dir_to_intuitive_dir(dir)
 	dir = case dir
-	when 'N'
-		'U'
-	when 'E'
-		'R'
-	when 'S'
-		'D'
 	when 'W'
 		'L'
+	when 'S'
+		'D'
+	when 'E'
+		'R'
+	when 'N'
+		'U'
 	end
 end
 
 def intuitive_dir_to_map_dir(dir)
 	dir = case dir
-	when 'U'
-		'N'
-	when 'R'
-		'E'
-	when 'D'
-		'S'
 	when 'L'
 		'W'
+	when 'D'
+		'S'
+	when 'R'
+		'E'
+	when 'U'
+		'N'
 	end
 end
 
@@ -38,20 +38,20 @@ cmd_str = ARGV[3]
 
 $direction = init_dir
 
-def turn_right # TODO rename to “right” at end
+def right
 	case $direction
-	when 'R'
-		$direction = 'D'
-	when 'D'
-		$direction = 'L'
 	when 'L'
 		$direction = 'U'
+	when 'D'
+		$direction = 'L'
+	when 'R'
+		$direction = 'D'
 	when 'U'
 		$direction = 'R'
 	end
 end
 
-def turn_left # TODO rename to “left” at end
+def left
 	case $direction
 	when 'L'
 		$direction = 'D'
@@ -66,10 +66,15 @@ end
 
 # first, figure out the final direction
 cmd_str.chars.each do |c|
-	if c == 'R'
-		turn_right
-	elsif c == 'L'
-		turn_left
+	case c
+	when 'L'
+		left
+	when 'D'
+		#$direction = 'D'
+	when 'R'
+		right
+	when 'U'
+		#$direction = 'U'
 	end
 end
 $last_direction = $direction
@@ -96,10 +101,15 @@ while $next_run != :null
 	num_advances = this_run[2].size
 	#$stderr.puts ['debug: direction before turns', $direction].inspect
 	turns.chars.each do |c|
-		if c == 'R'
-			turn_right
-		elsif c == 'L'
-			turn_left
+		case c
+		when 'L'
+			left
+		when 'D'
+			#$direction = 'D'
+		when 'R'
+			right
+		when 'U'
+			#$direction = 'U'
 		end
 	end
 	#$stderr.puts ['debug: direction after turns', $direction].inspect
