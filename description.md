@@ -12,6 +12,7 @@ Misfeatures of my program (some implemented, some planned, some just ideas):
     - `handle_turns_chars(turns_chars)` instead of `make_turns(turns)` or `change_direction_with_turns(turns)`
     - `run` instead of `find_run` or `find_run_of_advances` – it sounds like it runs (executes) the commands, but that comes later
     - `direction?` instead of `is_a_direction?`
+- `ARGV` processing is overly DRY; it’s more complicated than the equivalent four lines assigning the four variables
 - deduplicates some code into `handle_turns_chars`, but fails to realize that it is almost the same as the initial calculation of `last_direction`
 - comment “index after end” is misleading, if I remember right
 - pointless distinction between `mov[-1]` and `mov[1]` in the two-element `mov` array near the end

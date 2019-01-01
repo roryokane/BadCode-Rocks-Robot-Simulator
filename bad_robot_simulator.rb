@@ -32,10 +32,16 @@ def intuitive_dir_to_map_dir(dir)
 	end
 end
 
-init_x = eval(ARGV[0])
-init_y = eval(ARGV[1])
-init_dir = map_dir_to_intuitive_dir(ARGV[2])
-cmd_str = ARGV[3]
+# arguments
+processors = [
+	method(:eval),
+	method(:eval),
+	method(:map_dir_to_intuitive_dir),
+	lambda { |arg| arg }, # leave it alone
+]
+init_x, init_y, init_dir, cmd_str = ARGV.zip(processors).map do |arg, processor|
+	processed = processor.call(arg)
+end
 
 $direction = init_dir
 
