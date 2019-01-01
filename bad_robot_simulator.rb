@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 # warn_indent: true
+# by: Rory O’Kane
 
 $direction = :not_init
 
