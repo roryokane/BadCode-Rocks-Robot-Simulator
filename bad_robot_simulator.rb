@@ -39,6 +39,10 @@ cmd_str = ARGV[3]
 
 $direction = init_dir
 
+def direction?(dir)
+	dir = dir == 'L' || dir == 'D' || dir == 'R' || dir == 'U'
+end
+
 def right
 	dir = case $direction
 	when 'L'
@@ -108,7 +112,7 @@ $next_run = run(cmd_str) ? run(cmd_str) : :null
 while $next_run != :null
 	# first handle previous directions
 	$direction = init_dir
-	turns = cmd_str.chars[0...$last_run_idx].select { |t| t == 'L' || t == 'D' || t == 'R' || t == 'U' }.join('')
+	turns = cmd_str.chars[0...$last_run_idx].select { |t| direction?(t) }.join('')
 	handle_turns_chars(turns.chars)
 	
 	this_run = run(cmd_str)
