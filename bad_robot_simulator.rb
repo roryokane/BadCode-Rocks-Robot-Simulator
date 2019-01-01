@@ -71,11 +71,11 @@ cmd_str.chars.each do |c|
 	when 'L'
 		left
 	when 'D'
-		#$direction = 'D'
+		# not needed
 	when 'R'
 		right
 	when 'U'
-		#$direction = 'U'
+		# not needed
 	end
 end
 $last_direction = $direction
@@ -93,11 +93,11 @@ def handle_turns_chars(turns_chars)
 		when 'L'
 			left
 		when 'D'
-			#$direction = 'D'
+			# not needed
 		when 'R'
 			right
 		when 'U'
-			#$direction = 'U'
+			# not needed
 		end
 	end
 end
