@@ -89,17 +89,14 @@ end
 $movements = []
 $last_run_idx = 0
 $next_run = run(cmd_str) ? run(cmd_str) : :null
-#$stderr.puts ['debug: before loop', $last_run_idx, $next_run, cmd_str].inspect
 $direction = init_dir
 while $next_run != :null
 	#$direction = init_dir # TODO Should I do this here? I had originally planned to reset the direction and calculate it from scratch for each run, by ignoring 'A' before that position in the regex and keeping only the turns to recalculate. My current code goes each segment at a time, which would require removing this initializion so that direction can be tracked (globally) between runs. Which is worse (better)?
 	
 	this_run = run(cmd_str)
-	#$stderr.puts ['debug: in loop', $last_run_idx, this_run].inspect
 	
 	turns = this_run[1]
 	num_advances = this_run[2].size
-	#$stderr.puts ['debug: direction before turns', $direction].inspect
 	turns.chars.each do |c|
 		case c
 		when 'L'
@@ -112,17 +109,14 @@ while $next_run != :null
 			#$direction = 'U'
 		end
 	end
-	#$stderr.puts ['debug: direction after turns', $direction].inspect
 	dir = $direction.clone
 	$movements << [dir, num_advances]
-	#$stderr.puts ['debug: movements edited', $movements].inspect
 	$last_run_idx = $last_run_idx + this_run.end(0) # index after end
 	
 	$next_run = run(cmd_str) ? run(cmd_str) : :null
 end
 
 # split movements into x and y movements so the program can set x and y separately
-#$stderr.puts ['debug: movements', $movements].inspect
 y_movs, x_movs = $movements.partition { |m| m[0] == 'U' || m[0] == 'D' }
 last_x = x_movs.inject(init_x) { |x, mov| mov[0] == 'L' ? x - mov[-1] : x + mov[1] }
 last_y = y_movs.inject(init_y) { |y, mov| mov[0] == 'D' ? y - mov[-1] : y + mov[1] }
