@@ -4,12 +4,13 @@ Misfeatures of my program (some implemented, some planned, some just ideas):
 
 - bad code on purpose
 - redundant work for “simplicity” or “optimization”
-- reuses global variable $direction
-- Try to mix up the values for current directions and instructions to turn – both will be called “left” and “right” instead of calling one “east” and “west”.
-- unidiomatic Ruby?
-
-
-
-deleted debug code:
-
+- reuses global variable `$direction`; has other unnecessarily global variables
+- mixes up the values for current directions and instructions to turn – both are called “left” and “right” instead of calling one “east” and “west”.
+- poorly named methods – `left` instead of `turn_left`, `handle_turns_chars` instead of `make_turns`
+- deduplicates some code into `handle_turns_chars`, but fails to realize that it is almost the same as the initial calculation of `last_direction`
+- unidiomatic Ruby
+    - unnecessary `clone` of the global variable; `clone` does nothing on `Number`s anyway
+    - doesn’t index string ranges; splits and joins chars first
+    - uses symbols instead of nil
+- excessive or redundant initial magic comments, not used in such a short program
 
