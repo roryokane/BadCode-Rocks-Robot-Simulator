@@ -3,7 +3,8 @@ The problem description: http://badcode.rocks/2018/337/robot-simulator/
 Misfeatures of my program (some implemented, some planned, some just ideas):
 
 - bad code on purpose
-- redundant work for “simplicity” or “optimization”
+- redundant work for “simplicity” or “optimization”, such as calculating direction and position separately
+- `run` is called four times for every single time it needs to be called; the other three results are discarded
 - reuses global variable `$direction`; has other unnecessarily global variables
 - mixes up the values for current directions and instructions to turn – both are called “left” and “right” instead of calling one “east” and “west”.
 - poorly named methods – `left` instead of `turn_left`, `handle_turns_chars` instead of `make_turns`
