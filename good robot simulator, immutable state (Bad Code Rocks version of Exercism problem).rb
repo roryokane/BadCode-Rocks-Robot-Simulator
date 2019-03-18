@@ -1,4 +1,5 @@
-# in contrast, a good solution for the robot simulator
+# In contrast, a good solution for the robot simulator.
+# This good solution uses immutable state to make the code more explicit, though it is more verbose.
 # http://badcode.rocks/2018/337/robot-simulator/
 
 module StateTransformers
