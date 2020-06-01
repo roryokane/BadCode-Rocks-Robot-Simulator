@@ -1,8 +1,8 @@
-# Robot Simulator – BadCode Rocks 2018-12 contest entry
+# Robot Simulator – BadCode.rocks 2018-12 contest entry
 
 This is a program `bad_robot_simulator.rb` that crams as many **mistakes, misfeatures, and bad design decisions** as I could into a program that nonetheless gets the right output. **[Read the code][bad_code]** and weep in relief that you don’t have to work with code like this (or in despair that you do).
 
-It was written for fun and as an entry for the contest BadCode Rocks for the month of 2018-12, and it **[won an Honorable Mention](https://badcode.rocks/2019/025/december-teardown-robot-simulator/)** for that month:
+It was written for fun and as an entry for the contest [BadCode.rocks](https://badcode.rocks/) for the month of 2018-12, and it **[won an Honorable Mention](https://badcode.rocks/2019/025/december-teardown-robot-simulator/)** for that month:
 
 > It was a close race this time, so we’ll take more time than usual to talk about our runner-up. [In Ruby, from Rory O’Kane](https://snark.badcode.rocks/archives/2019-January/000026.html), this submission had some basic stuff: inconsistently formatted magic comments (though the presence of those comments in Ruby is almost a good practise, for shame!), use of eval to parse numbers, many global variables, useless assignments, and changing the input to another format for no good reason.
 >
