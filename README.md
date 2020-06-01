@@ -1,6 +1,20 @@
-The problem description: http://badcode.rocks/2018/337/robot-simulator/
+# Robot Simulator – BadCode Rocks 2018-12 contest entry
 
-Misfeatures of my program:
+This is a program `bad_robot_simulator.rb` that crams as many **mistakes, misfeatures, and bad design decisions** as I could into a program that nonetheless gets the right output. **[Read the code][bad_code]** and weep in relief that you don’t have to work with code like this (or in despair that you do).
+
+It was written for fun and as an entry for the contest BadCode Rocks for the month of 2018-12, and it **[won an Honorable Mention](http://badcode.rocks/2019/025/december-teardown-robot-simulator/)** for that month:
+
+> It was a close race this time, so we’ll take more time than usual to talk about our runner-up. [In Ruby, from Rory O’Kane](https://snark.badcode.rocks/archives/2019-January/000026.html), this submission had some basic stuff: inconsistently formatted magic comments (though the presence of those comments in Ruby is almost a good practise, for shame!), use of eval to parse numbers, many global variables, useless assignments, and changing the input to another format for no good reason.
+>
+> The really impenetrable, truly bad part of this submission though, is the final algorithm to determine the robot’s position. Combining a global variable with an algorithm that re-processes already-handled instructions over and over in a loop, it took our judges several read-throughs to understand why this code worked at all. Impossible to understand without being hard to read, this is exactly the kind of bad code this competition is all about.
+
+The [contest prompt](http://badcode.rocks/2018/337/robot-simulator/) was to write a program simulating a robot moving around a grid. The robot is given starting coordinates, a starting orientation (north, south, east or west), and a list of instructions to follow. The supported instructions are “advance one space forward”, “turn left 90°”, and “turn right 90°”. The expected output of the program is the robot’s new coordinates and orientation. For example, running the program with initial state `0 0 N` and the instructions `RA` (turn right, advance) should leave the robot at `1 0 E`.
+
+## What makes this code bad?
+
+A comprehensive list of misfeatures in my implementation [`bad_robot_simulator.rb`][bad_code]:
+
+[bad_code]: ./bad_robot_simulator.rb
 
 - redundant work for “simplicity” or “optimization”, such as calculating direction and position separately
 - `run` is called four times for every single time it needs to be called; the other three results are discarded
@@ -43,8 +57,29 @@ Misfeatures of my program:
 - Overly repetitive verbose code in `left` and `right` to find the new direction – a hash-map of old directions to new directions would have made each method simpler.
 - Useless capturing groups in the regex `/([RL]*)(A+)/` within `run`. `/ [RL]* A+ /x` would be easier to read and would probably run faster due to not saving the capture groups.
 
-To run the tests:
+## How to run the code
+
+To run the tests, which confirm that the program works despite all the above flaws:
 
 ~~~sh
 ./test.sh ./bad_robot_simulator.rb
 ~~~
+
+To call the program directly, make sure Ruby is installed, then pass four arguments: initial x position, initial y position, initial direction, and command string. An example call and its output:
+
+~~~sh
+$ ./bad_robot_simulator.rb 0 0 N "RA"
+1 0 E
+~~~
+
+You can see more examples of valid command-line arguments in [`test.sh`](./test.sh).
+
+## My other Robot Simulator implementations
+
+If you need to cleanse the bad taste from your mouth, you can read my attempts at writing actually good solutions. They’re in this repository. I think of those two other solutions, the program [`good robot simulator, mutable state (Bad Code Rocks version of Exercism problem).rb`][best_code] is the better one.
+
+[best_code]: ./good%20robot%20simulator,%20mutable%20state%20(Bad%20Code%20Rocks%20version%20of%20Exercism%20problem).rb
+
+## License for `bad_robot_simulator.rb`
+
+This work is licensed under the Creative Commons Attribution 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/ or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
