@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Robot Simulator</title>
+		<meta content="width=device-width, initial-scale=1" name="viewport" />
+		<link href="../../../article.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+		<header>
+			<h1>
+				<a href="../../../">BadCode.rocks</a>
+			</h1>
+		</header>
+		<article class="hentry">
+			<h1 class="entry-title">
+				Robot Simulator
+			</h1>
+			<section class="entry-content"><p>Note: if you still want to submit for <a href="../../305/beer-song/">the beer song challenge</a>, we’re going to accept submissions there for awhile longer.</p>
+
+<hr>
+
+<p>A robot factory’s test facility needs a program to verify robot movements.</p>
+
+<p>The robots have three possible movements:</p>
+
+<ul>
+	<li>turn right</li>
+	<li>turn left</li>
+	<li>advance</li>
+</ul>
+
+<p>Robots are placed on a hypothetical infinite grid, facing a particular direction (north, east, south, or west) at a set of <code>{x,y}</code> coordinates, e.g., <code>{3,8}</code>, with coordinates increasing to the north and east.</p>
+
+<p>The robot then receives a number of instructions, at which point the testing facility verifies the robot’s new position, and in which direction it is pointing.</p>
+
+<p>The command string “RAALAL” means:</p>
+
+<ul>
+	<li>Turn right</li>
+	<li>Advance twice</li>
+	<li>Turn left</li>
+	<li>Advance once</li>
+	<li>Turn left yet again</li>
+</ul>
+
+<p>Say a robot starts at <code>{7,3}</code> facing north. Then running this stream of instructions should leave it at <code>{9,4}</code> facing west.</p>
+
+<h1>Testing</h1>
+
+<p>To ensure the correctness of your implementation, see <a href="test.sh">test.sh</a> with usage:</p>
+
+<pre><code>sh test.sh /path/to/program
+</code></pre>
+
+<p>It is expected that your program takes four command line arguments: initial x position, initial y position, initial direction, and command string.</p>
+
+<p>On STDOUT your program must print: final x position&lt;space&gt;final y position&lt;space&gt;final direction.</p>
+
+<p>All positions are integers, and valid directions are: N, S, E, W.</p>
+
+<h1>Submission</h1>
+
+<p>All submissions must contain a statement that the code is your own work (groups are ok!) and placing the code under either <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>, <a href="http://creativecommons.org/licenses/by/4.0/">CC-BY</a>, or <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a>.  Submissions are by email to <a href="mailto:submissions@badcode.rocks">submissions@badcode.rocks</a>.  Attaching each source file is preferred, but tarballs or git URLs will also be accepted (especially when directory structure matters).  Submissions may be in any programming language that can be compiled or interpreted on a Debian Stable system.</p>
+
+<p>If relevant, please make it clear what name, pseudonym, or group name you would like your submission attributed to.  This name (and the code content of your submission) will be made public.</p>
+
+<p>Submissions are due by <time datetime="2018-12-31">2018-365 (December 31, 2018)</time> and the winning teardown post will be published the following month.</p>
+
+<hr>
+
+<p>This excercise and its tests based on <a href="https://github.com/exercism/rust/tree/master/exercises/robot-simulator">https://github.com/exercism/rust/tree/master/exercises/robot-simulator</a>, original license:</p>
+
+<p>Copyright (c) 2017 Exercism, Inc</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the “Software”), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</p>
+
+			</section>
+			<footer>
+				<a href="./" rel="bookmark"><time class="published" datetime="2018-12-03">2018-337</time></a>
+				<p class="copyright">
+					<small>This content is under a <a href="http://creativecommons.org/licenses/by-sa/4.0/" rel="license">Creative Commons Attribution ShareAlike 4.0 License</a></small>
+				</p>
+			</footer>
+		</article>
+	</body>
+</html>
